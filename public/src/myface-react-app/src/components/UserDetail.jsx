@@ -31,27 +31,17 @@ export function UserDetail() {
                     </div>
                     <div>
                         <h3>Posts {firstName} Liked</h3>
-                        {user.likes.map((post) => {
-                            return (
-                                <div>
-                                    <p>{post.userId}</p>
-                                    <Posts post={post} postedBy={post}/>
-                                </div>
-                            )
+                        {user.likes.map(post => {
+                            return <Posts post={post} postedBy={user} />
                         })}
                     </div>
                     <div>
                         <h3>Posts {firstName} Disliked</h3>
-                        {user.likes.map((post) => {
-                            return (
-                                <div>
-                                    <Posts post={post} postedBy={post}/>
-                                </div>
-                            )
+                        {user.dislikes.map(post => {
+                            return <Posts post={post} postedBy={user} />
                         })}
                     </div>
                 </section>
-
             )
         })
 
