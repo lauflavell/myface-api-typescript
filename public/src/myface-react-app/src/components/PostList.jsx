@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Posts } from "./Posts";
+import { Navbar } from "./Navbar";
 
 
 export function PostList() {
@@ -22,6 +23,7 @@ export function PostList() {
     } else {
         return (
             <section>
+                <Navbar />
                 <h2>Posts</h2>
                 <ol>
                     {posts.map((post) => {
