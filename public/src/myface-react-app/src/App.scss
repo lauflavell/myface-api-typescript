@@ -1,0 +1,41 @@
+
+$gutters: 3rem;
+$width: 100%;
+
+@mixin posts() {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+}
+
+.post-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1024px;
+  width: calc((100% - (2 * $gutters)) / 3);
+  margin-right: 0;
+  margin-bottom: $gutters;
+}
+
+.posts-container {
+@include posts();
+}
+
+.likes-posts-container {
+  @include posts();
+}
+
+.dislikes-posts-container {
+    @include posts();
+}

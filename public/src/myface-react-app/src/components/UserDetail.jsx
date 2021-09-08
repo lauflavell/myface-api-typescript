@@ -21,22 +21,22 @@ export function UserDetail() {
         users.map((user) => {
             const firstName = user.name.split(" ")[0];
             return (
-                <section>
+                <section className="user-details">
                     <User user={user} />
-                    <div>
-                        <h3>{`${firstName}'s`} Posts</h3>
+                    <h3>{`${firstName}'s`} Posts</h3>
+                    <div className="posts-container">
                         {user.posts.map((post) => {
                             return <Posts post={post} postedBy={user} />
                         })}
                     </div>
-                    <div>
-                        <h3>Posts {firstName} Liked</h3>
+                    <h3>Posts {firstName} Liked</h3>
+                    <div className="likes-posts-container">
                         {user.likes.map(post => {
                             return <Posts post={post} postedBy={user} />
                         })}
                     </div>
-                    <div>
-                        <h3>Posts {firstName} Disliked</h3>
+                    <h3>Posts {firstName} Disliked</h3>
+                    <div className="dislikes-posts-container">
                         {user.dislikes.map(post => {
                             return <Posts post={post} postedBy={user} />
                         })}

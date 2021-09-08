@@ -10,7 +10,7 @@ export function Posts({ post, postedBy }) {
         likesDislikes = <p><button> 👍 </button>  {post.likedBy.length} <button> 👎 </button> {post.dislikedBy.length}</p>;
     }
     return (
-        <li>
+        <li className="post-item">
             <img src={post.imageUrl} alt={post.message} width="300px" />
             <p>{postedBy.username}</p>
             <p>{post.message}</p>

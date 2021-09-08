@@ -1,13 +1,13 @@
-import './App.css';
+import './App.scss';
 import React from "react";
+
 import { PostList } from './components/PostList';
-import { UserDetail } from './components/UserDetail';
+
 
 function App() {
   return(
     <main>
       <PostList/>
-      <UserDetail/>
     </main> 
   ) 
 }
