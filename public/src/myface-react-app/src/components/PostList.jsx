@@ -7,32 +7,32 @@ export function PostList() {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-    async function fetchPosts() {
-        const response = await fetch('http://localhost:3001/posts')
-        const json = await response.json()
-        setPosts(json.results)
-    }
+        async function fetchPosts() {
+            const response = await fetch('http://localhost:3001/posts')
+            const json = await response.json()
+            setPosts(json.results)
+        }
 
-    fetchPosts()
+        fetchPosts()
 
-    },[])
+    }, [])
 
-    if (posts.length === 0){
+    if (posts.length === 0) {
         return <p>There are currently no posts.</p>
     } else {
         return (
-            <section> 
+            <section>
                 <h2>Posts</h2>
-                    <ol>
-                        {posts.map((post)=> {
-                            return (
-                                <Posts post={post} postedBy={post.postedBy}/>)
-                        })}
-                    </ol>
+                <ol>
+                    {posts.map((post) => {
+                        return (
+                            <Posts post={post} postedBy={post.postedBy} />)
+                    })}
+                </ol>
             </section>
         );
     }
-        
+
 }
-    
+
 
