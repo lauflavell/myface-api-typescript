@@ -15,38 +15,41 @@ export function UserDetail() {
             const json = await response.json();
             setUsers(json);
         }
+
         fetchUsers();
+        
     }, [userId])
 
 
     if (!user) {
-        return <p>There are currently no users.</p>
-    } else {
+        return <p>Waiting for user to load.</p>
+    }
+
+    else {
 
         return (
 
             <section className="user-details">
-                 
-                 <User user={user} />
-                 <h3>{`${user.name}'s`} Posts</h3>
-                 <div className="posts-container">
-                     {user.posts.map((post) => {
-                         return <Posts post={post} postedBy={user} />
-                     })}
-                 </div>
-                 <h3>Posts {user.name} Liked</h3>
-                 <div className="likes-posts-container">
-                     {user.likes.map(post => {
-                         return <Posts post={post} postedBy={user} />
-                     })}
-                 </div>
-                 <h3>Posts {user.name} Disliked</h3>
-                 <div className="dislikes-posts-container">
-                     {user.dislikes.map(post => {
-                         return <Posts post={post} postedBy={user} />
-                     })}
-                 </div>
-             </section> 
+                <User user={user} />
+                <h3>{`${user.name.split(' ')[0]}'s`} Posts</h3>
+                <div className="posts-container">
+                    {user.posts.map((post) => {
+                        return <Posts post={post} postedBy={user} />
+                    })}
+                </div>
+                <h3>Posts {user.name.split(' ')[0]} Liked</h3>
+                <div className="likes-posts-container">
+                    {user.likes.map(post => {
+                        return <Posts post={post} postedBy={user} />
+                    })}
+                </div>
+                <h3>Posts {user.name.split(' ')[0]} Disliked</h3>
+                <div className="dislikes-posts-container">
+                    {user.dislikes.map(post => {
+                        return <Posts post={post} postedBy={user} />
+                    })}
+                </div>
+            </section>
         )
     }
 
