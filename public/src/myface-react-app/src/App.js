@@ -9,9 +9,11 @@ function App() {
   return (
     <main>
       <Switch>
+        <Route exact path="/" component={PostList} />
         <Route path="/posts" component={PostList} />
-        <Route path="/users" component={UsersPage} />
-        <Route path={<UsersPage/>} component={UserDetail} />
+        <Route exact path="/users" component={UsersPage} />
+        <Route path="/users/58" component={UserDetail} />
+        
       </Switch>
     </main>
   );
