@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function UsersPage() {
 
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([]);
+    const [userId, setUserId] = useState([])
 
     useEffect(() => {
         async function fetchUsers() {
@@ -12,11 +13,18 @@ export function UsersPage() {
             setUsers(json.results);
         }
         fetchUsers();
-    }, [])
+    }, [userId])
 
-    return ( 
-        users.map((user) => {
-            return <p><Link to={`/users/${user.id}`} >{user.username}</Link></p>
-        })
-    )
+    if (users.length === 0) {
+
+        return <p>There are currently no users.</p>
+
+    } else {
+
+        return (
+            users.map((user, index) => {
+                return <p><Link key={index} to={`/users/${user.id}`} onClick={() => setUserId(user.id)} value={userId}>{user.username}  </Link></p>
+            })
+        )
+    }
 }
