@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Posts } from "./Posts";
 import { Navbar } from "./Navbar";
 
-
 export function PostList() {
 
     const [posts, setPosts] = useState([])
@@ -16,7 +15,7 @@ export function PostList() {
 
         fetchPosts()
 
-    }, [])
+    },[posts])
 
     if (posts.length === 0) {
         return <p>There are currently no posts.</p>

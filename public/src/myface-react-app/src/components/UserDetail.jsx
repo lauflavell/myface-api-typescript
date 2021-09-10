@@ -17,7 +17,7 @@ export function UserDetail() {
         }
 
         fetchUsers();
-        
+
     }, [userId])
 
 
@@ -28,7 +28,6 @@ export function UserDetail() {
     else {
 
         return (
-
             <section className="user-details">
                 <User user={user} />
                 <h3>{`${user.name.split(' ')[0]}'s`} Posts</h3>
