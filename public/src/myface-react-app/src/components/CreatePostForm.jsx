@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 
 export function CreatePostForm() {
+
+    const history = useHistory()
 
     const [message, SetMessage] = useState();
     const [imageUrl, setImageUrl] = useState();
@@ -19,11 +22,13 @@ export function CreatePostForm() {
             }),
 
         })
+        window.alert("Your post has been created!")
+        history.push("/posts/")
     }
 
     return (
         <div>
-            <form onSubmit={handleSubmit.then()}>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Message:
                     <input value={message} onChange={e => SetMessage(e.target.value)} type="text" name="message" required />
