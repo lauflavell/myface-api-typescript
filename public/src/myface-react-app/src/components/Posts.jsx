@@ -1,5 +1,7 @@
 import React from "react";
 import moment from "moment";
+import { DislikeButton } from "./DislikeButton";
+import { LikeButton } from "./LikeButton";
 
 export function Posts({ post, postedBy }) {
 
@@ -10,7 +12,7 @@ export function Posts({ post, postedBy }) {
             <p>{post.message}</p>
             <p>{moment(post.createdAt).format('DD/MM/YYYY')}</p>
             {post.likedBy !== undefined ? 
-            <p><button> 👍 </button>  {post.likedBy.length} <button> 👎 </button> {post.dislikedBy.length}</p> : <></> }
+            <p><LikeButton post={post} postedBy={post.postedBy} /> <DislikeButton post={post} postedBy={post.postedBy}/></p> : <></> }
         </li>
     )
 
