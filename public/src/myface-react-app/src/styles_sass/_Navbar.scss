@@ -1,0 +1,24 @@
+@import "./Variables";
+
+@mixin displayInCenter {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin padding1vw {
+  padding: 1vw 3vw;
+}
+
+nav {
+  @include displayInCenter();
+  position: sticky;
+  background-color: $darkerBackground;
+  color: $defaultForeground;
+  font-family: $defaultFont;
+  font-weight: $regularFontSize;
+  .nav-bar-link {
+    @include padding1vw();
+    color: $defaultForeground;
+    text-decoration: none;
+  }
+}

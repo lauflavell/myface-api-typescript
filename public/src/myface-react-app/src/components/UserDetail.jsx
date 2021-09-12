@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { Posts } from "./Posts";
 import { User } from "./User";
+import { Navbar } from "./Navbar";
 
 
 export function UserDetail() {
@@ -28,7 +29,8 @@ export function UserDetail() {
     else {
 
         return (
-            <section className="user-details">
+            <section>
+                <Navbar/>
                 <User user={user} />
                 <h3>{`${user.name.split(' ')[0]}'s`} Posts</h3>
                 <div className="posts-container">
